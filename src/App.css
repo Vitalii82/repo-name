@@ -1,38 +1,68 @@
-.App {
-  text-align: center;
+import React,
+{
+    useEffect
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+from 'react';
+import {
+    useDispatch,
+    useSelector
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+from 'react-redux';
+import {
+    fetchMembers,
+    addMember,
+    updateMember,
+    deleteMember
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+from './redux/actions';
+import FamilyMember from './components/FamilyMember'; // Реалізуйте компонент для відображення члена родини
+import {
+    Button
 }
 
-.App-link {
-  color: #61dafb;
+from '@mui/material';
+const App: React.FC=()=> {
+    const dispatch=useDispatch();
+    const members=useSelector((state: any)=> state.family.members);
+    useEffect(()=> {
+        dispatch(fetchMembers());
+    }
+    , [dispatch]);
+    const handleCreateMember=(memberData: any)=> {
+        dispatch(addMember(memberData));
+    }
+    ;
+    const handleUpdateMember=(memberData: any)=> {
+        dispatch(updateMember(memberData));
+    }
+    ;
+    const handleDeleteMember=(memberId: string)=> {
+        dispatch(deleteMember(memberId));
+    }
+    ;
+    return ( <div> <h1>Family Tree</h1> <Button onClick= {
+        handleCreateMember
+    }
+    >Create Member</Button> {
+        members.map(member=> ( <FamilyMember key= {
+            member._id
+        }
+        member= {
+            member
+        }
+        onUpdate= {
+            handleUpdateMember
+        }
+        onDelete= {
+            handleDeleteMember
+        }
+        />))
+    }
+    </div>);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+;
+export default App;
