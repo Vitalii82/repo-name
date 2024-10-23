@@ -1,7 +1,8 @@
 // src/components/FamilyMember.tsx
 import React from 'react';
 import { Button } from '@mui/material';
-import { FamilyMember as FamilyMemberType } from '../types'; // Adjust the path as needed
+import { FamilyMember as FamilyMemberType } from '../types'; // Make sure the path is correct based on your structure
+   
 
 interface FamilyMemberProps {
     member: FamilyMemberType;

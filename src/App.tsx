@@ -1,11 +1,11 @@
 // src/App.tsx
-import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMembers, addMember, updateMember, deleteMember } from './redux/actions';
+import { fetchMembers, addMember, updateMember, deleteMember } from '/redux/actions';  // Adjust this path if needed.
+   
 import FamilyMember from './components/FamilyMember';
 import { Button } from '@mui/material';
 import { FamilyMember as FamilyMemberType } from './types'; // Імпортуйте типи членів родини

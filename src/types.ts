@@ -1,7 +1,7 @@
-// src/types.ts
-export interface FamilyMember {
-    _id: string; // Assuming the ID is a string
-    name: string;
-    age: number;
-    parentId?: string; // Optional property for parentId
+   // src/types.ts
+   export interface FamilyMember {
+    _id: string; // Represents the unique identifier
+    name: string; // Name of the family member
+    age: number; // Age of the family member
+    parentId?: string; // Optional property if they have a parent
 }
