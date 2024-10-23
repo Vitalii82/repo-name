@@ -1,11 +1,17 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+  
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "outDir": "./dist"
+      "include": ["src/*/"],  // Ensure the src directory is included
+      "exclude": ["node_modules"]
+}
+,
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,

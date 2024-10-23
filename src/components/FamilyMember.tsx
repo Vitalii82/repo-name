@@ -1,10 +1,17 @@
+// src/components/FamilyMember.tsx
 import React from 'react';
 import { Button } from '@mui/material';
+import { FamilyMember as FamilyMemberType } from '../types'; // Adjust the path as needed
 
-const FamilyMember = ({ member, onUpdate, onDelete }) => {
-    // Функції для редагування і видалення члена родини
+interface FamilyMemberProps {
+    member: FamilyMemberType;
+    onUpdate: (member: FamilyMemberType) => void;
+    onDelete: (id: string) => void;
+}
+
+const FamilyMember: React.FC<FamilyMemberProps> = ({ member, onUpdate, onDelete }) => {
     const handleEdit = () => {
-        // Логіка для відкриття модального вікна редагування
+        // Logic to open the edit modal window
     };
 
     return (
